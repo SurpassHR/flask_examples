@@ -10,7 +10,8 @@ def GetHostIpList():
 
 class BoardCmd(Enum):
     PING = 0
-    VERSION = 1
+    SHELL_PING = 1
+    VERSION = 2
 
 
 cmdList = []
@@ -22,6 +23,8 @@ def StubBoardResponse(hostip, cmd : BoardCmd):
                 return "Reply from 172.26.96.1: bytes=32 time<1ms TTL=128"
             elif cmd == BoardCmd.VERSION:
                 return "V300R024C00"
+            elif cmd == BoardCmd.SHELL_PING:
+                return " ok\n".join(hostIpList)
             else:
                 return ""
     print("no such hostip")

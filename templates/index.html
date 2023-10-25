@@ -19,9 +19,7 @@
             margin: 20px auto;
         }
 
-        #button,
-        #post-button,
-        #get-button {
+        button {
             padding: 10px 20px;
             margin: 10px;
             background-color: #007BFF;
@@ -31,10 +29,13 @@
             border-radius: 5px;
         }
 
-        #button:hover,
-        #post-button:hover,
-        #get-button:hover {
+        button:hover {
             background-color: #0056b3;
+        }
+
+        p,
+        button.version-button {
+            text-align: left;
         }
     </style>
 </head>
@@ -46,6 +47,7 @@
     <button id="button">Click to display content</button>
     <button id="post-button">Send a POST request</button>
     <button id="get-button">Send a GET request</button>
+    <button id="shell-ping-button">Shell Ping</button>
     <script src="../static/index.js"></script>
 </body>
 

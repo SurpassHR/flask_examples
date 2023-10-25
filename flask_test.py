@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from stub_ssh_response import StubBoardResponse
+from stub_ssh_response import StubBoardResponse, BoardCmd
 import json
 
 app = Flask(__name__)
@@ -21,3 +21,15 @@ def get():
     list = ['haha', 'hehe', '李雨点傻蛋']
     listJson = json.dumps(list)
     return listJson
+
+@app.route("/shell_ping", methods = ['GET'])
+def ShellPing():
+    ret = StubBoardResponse(hostip="10.91.15.208", cmd=BoardCmd.SHELL_PING)
+    respList = ret.split("\n")
+    for i in range(len(respList)):
+        if respList[i] == "":
+            respList.remove(respList[i])
+
+    for item in respList:
+        print(item)
+    return respList
