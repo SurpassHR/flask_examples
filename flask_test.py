@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request
+from stub_ssh_response import StubBoardResponse
 import json
 
 app = Flask(__name__)
